@@ -1,0 +1,1313 @@
+{
+    "meta": {
+        "version": "3.5.0",
+        "report_json_url": "https://raw.githubusercontent.com/eosc-synergy/dt-geo.assess.sqaaas/st750203/1.0.0/.report/assessment_output.json",
+        "report_permalink": "https://sqaaas.eosc-synergy.eu/full-assessment/report/https://raw.githubusercontent.com/eosc-synergy/dt-geo.assess.sqaaas/st750203/1.0.0/.report/assessment_output.json",
+        "timestamp": 1749205870.5129433
+    },
+    "repository": [
+        {
+            "url": "https://gitlab.com/MondaicSupport/collaborations/dt-geo",
+            "name": "MondaicSupport/collaborations/dt-geo",
+            "tag": "st750203/1.0.0",
+            "commit_id": "ecbfd3260426d48d3a4d883d3d051a6f72082f19",
+            "is_main_repo": true,
+            "badge_status": "no_badge"
+        }
+    ],
+    "report": {
+        "QC.Acc": {
+            "valid": true,
+            "subcriteria": {
+                "QC.Acc01": {
+                    "description": "Is the source code managed with a Version Control System?",
+                    "requirement_level": "MUST",
+                    "hint": "The source code shall be managed with Git and remain publicly available for this criterion to be successful. Please check <a href=\"https://git-scm.com/book/es/v2\" target=\"_blank\">Pro Git</a> docs about how to get started using Git tool. Guidelines provided by the most popular social coding platforms (<a href=\"https://docs.github.com/get-started\" target=\"_blank\">GitHub</a>, <a href=\"https://about.gitlab.com/get-started/\" target=\"_blank\">GitLab</a>) are also a good starting point",
+                    "evidence": [
+                        {
+                            "valid": true,
+                            "message": "Source code uses Git for version control",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-boolean",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "git",
+                                "lang": "scm",
+                                "version": "2.34.1",
+                                "docker": {
+                                    "image": "bitnami/git:2.34.1",
+                                    "reviewed": "2021-12-30"
+                                },
+                                "ci": {
+                                    "name": "QC.Acc gitlab.com/MondaicSupport/collaborations/dt-geo git",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "git rev-parse --is-inside-work-tree "
+                                    ],
+                                    "stdout_text": "true",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/dt-geo.assess.sqaaas/job/st750203%25252F1.0.0/1/execution/node/34/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/dt-geo.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {}
+                        }
+                    ],
+                    "valid": true
+                }
+            },
+            "coverage": {
+                "percentage": 100,
+                "total_subcriteria": 1,
+                "success_subcriteria": 1
+            }
+        },
+        "QC.Doc": {
+            "valid": false,
+            "subcriteria": {
+                "QC.Doc06.1": {
+                    "description": "Is the software scope outlined in the code repository?",
+                    "requirement_level": "MUST",
+                    "hint": "A README file presents your software to the audience interested in your software project. Several online sites simplify the task of creating the README file, such as <a href=\"https://www.makeareadme.com/\" target=\"_blank\">Make a README</a> or <a href=\"https://readme.so/\" target=\"_blank\">readme.so</a> sites. Be sure to add it to the code repository's root path",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "A README file not present in the code repository",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-find_doc_files",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "find_doc_files.py",
+                                "lang": "Contribution-enabling Files",
+                                "version": "latest",
+                                "docker": {
+                                    "dockerfile": "QC.Doc/Dockerfile",
+                                    "reviewed": "2022-01-26"
+                                },
+                                "ci": {
+                                    "name": "QC.Doc gitlab.com/MondaicSupport/collaborations/dt-geo find_doc_files.py",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "find_doc_files.py --file_type all"
+                                    ],
+                                    "stdout_text": "{\"README\": [], \"CODE_OF_CONDUCT\": [], \"CONTRIBUTING\": []}",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/dt-geo.assess.sqaaas/job/st750203%25252F1.0.0/1/execution/node/43/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/dt-geo.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {
+                                "README": [],
+                                "CODE_OF_CONDUCT": [],
+                                "CONTRIBUTING": []
+                            }
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": true
+                },
+                "QC.Doc06.3": {
+                    "description": "Does the project establish a code of conduct for its participants?",
+                    "requirement_level": "MUST",
+                    "hint": "A CODE_OF_CONDUCT file sets the path for a constructive, respectful and positive atmosphere among all the contributors in your software project. Of course you can define your own, but in case you want to rely on external and widely-adopted code of conducts check out some of the most popular ones: <a href=\"https://contributor-covenant.org/\" target=\"_blank\">Contributor Covenant</a> or <a href=\"https://web.archive.org/web/20200330154000/http://citizencodeofconduct.org/\" target=\"_blank\">Citizen Code of Conduct</a>",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "A CODE_OF_CONDUCT file is not present in the code repository",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-find_doc_files",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "find_doc_files.py",
+                                "lang": "Contribution-enabling Files",
+                                "version": "latest",
+                                "docker": {
+                                    "dockerfile": "QC.Doc/Dockerfile",
+                                    "reviewed": "2022-01-26"
+                                },
+                                "ci": {
+                                    "name": "QC.Doc gitlab.com/MondaicSupport/collaborations/dt-geo find_doc_files.py",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "find_doc_files.py --file_type all"
+                                    ],
+                                    "stdout_text": "{\"README\": [], \"CODE_OF_CONDUCT\": [], \"CONTRIBUTING\": []}",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/dt-geo.assess.sqaaas/job/st750203%25252F1.0.0/1/execution/node/43/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/dt-geo.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {
+                                "README": [],
+                                "CODE_OF_CONDUCT": [],
+                                "CONTRIBUTING": []
+                            }
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": true
+                },
+                "QC.Doc06.2": {
+                    "description": "Is there a clear path or guidelines on how to contribute to the code?",
+                    "requirement_level": "MUST",
+                    "hint": "A CONTRIBUTING file shall be present in the root path of the code repository describing the expected workflow to follow when adding contributions. Please check <a href=\"https://mozillascience.github.io/working-open-workshop/contributing/\" target=\"_blank\">Mozilla's guidelines</a> and <a href=\"https://github.com/github/docs/blob/main/CONTRIBUTING.md\" target=\"_blank\">GitHub's CONTRIBUTING.md example</a> to get inspired on how to write a good CONTRIBUTING file",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "A CONTRIBUTING file is not present in the code repository",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-find_doc_files",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "find_doc_files.py",
+                                "lang": "Contribution-enabling Files",
+                                "version": "latest",
+                                "docker": {
+                                    "dockerfile": "QC.Doc/Dockerfile",
+                                    "reviewed": "2022-01-26"
+                                },
+                                "ci": {
+                                    "name": "QC.Doc gitlab.com/MondaicSupport/collaborations/dt-geo find_doc_files.py",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "find_doc_files.py --file_type all"
+                                    ],
+                                    "stdout_text": "{\"README\": [], \"CODE_OF_CONDUCT\": [], \"CONTRIBUTING\": []}",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/dt-geo.assess.sqaaas/job/st750203%25252F1.0.0/1/execution/node/43/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/dt-geo.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {
+                                "README": [],
+                                "CODE_OF_CONDUCT": [],
+                                "CONTRIBUTING": []
+                            }
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": true
+                },
+                "QC.Doc01.1": {
+                    "description": "Are docs managed in the same repository as code?",
+                    "requirement_level": "MAY",
+                    "hint": "This subcriterion will succeed if the documentation files exist on the same repository as the source code, e.g. under a <code>docs/</code> folder",
+                    "evidence": [
+                        {
+                            "valid": true,
+                            "message": "Documentation resides in the same repository as code",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-boolean",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "git",
+                                "lang": null,
+                                "version": null,
+                                "docker": null,
+                                "ci": {
+                                    "name": "QC.Doc gitlab.com/MondaicSupport/collaborations/dt-geo git",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "git rev-parse --is-inside-work-tree "
+                                    ],
+                                    "stdout_text": "true",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/dt-geo.assess.sqaaas/job/st750203%25252F1.0.0/1/execution/node/52/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/dt-geo.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {}
+                        }
+                    ],
+                    "valid": true
+                },
+                "QC.Doc02.X": {
+                    "description": "Are docs following a style for the Markdown markup language?",
+                    "requirement_level": "MAY",
+                    "hint": "When using a docs-as-code approach, the style of the markup language is being checked. SQAaaS relies on <a href=\"https://github.com/markdownlint/markdownlint/\" target=\"_blank\">markdownlint</a> for Markdown files and <a href=\"https://github.com/twolfson/restructuredtext-lint/\" target=\"_blank\">restructuredtext-lint</a> for reStructuredText",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "Docs are not fully compliant with markdownlint standard",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-markdownlint",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "markdownlint",
+                                "lang": "Markdown",
+                                "version": "0.11.0",
+                                "docker": {
+                                    "dockerfile": "QC.Doc/markdownlint/Dockerfile",
+                                    "reviewed": "1970-01-01"
+                                },
+                                "ci": {
+                                    "name": "QC.Doc gitlab.com/MondaicSupport/collaborations/dt-geo markdownlint",
+                                    "status": "FAILED",
+                                    "stdout_command": [
+                                        "mdl --json  ."
+                                    ],
+                                    "stdout_text": "[{\"filename\":\"./continental_fwi_dtc/README.md\",\"line\":4,\"rule\":\"MD047\",\"aliases\":[\"single-trailing-newline\"],\"description\":\"File should end with a single newline character\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md047---file-should-end-with-a-single-newline-character\"},{\"filename\":\"./docker-image-cineca/README.md\",\"line\":13,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./docker-image-cineca/README.md\",\"line\":20,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./docker-image-cineca/README.md\",\"line\":21,\"rule\":\"MD047\",\"aliases\":[\"single-trailing-newline\"],\"description\":\"File should end with a single newline character\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md047---file-should-end-with-a-single-newline-character\"},{\"filename\":\"./shakemap_dtc/README.md\",\"line\":4,\"rule\":\"MD047\",\"aliases\":[\"single-trailing-newline\"],\"description\":\"File should end with a single newline character\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md047---file-should-end-with-a-single-newline-character\"}]",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/dt-geo.assess.sqaaas/job/st750203%25252F1.0.0/1/execution/node/61/log?consoleFull"
+                                },
+                                "level": "RECOMMENDED",
+                                "build_repo": "https://github.com/eosc-synergy/dt-geo.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {
+                                "./continental_fwi_dtc/README.md": {
+                                    "MD047": {
+                                        "description": "File should end with a single newline character",
+                                        "line": [
+                                            4
+                                        ]
+                                    }
+                                },
+                                "./docker-image-cineca/README.md": {
+                                    "MD013": {
+                                        "description": "Line length",
+                                        "line": [
+                                            13,
+                                            20
+                                        ]
+                                    },
+                                    "MD047": {
+                                        "description": "File should end with a single newline character",
+                                        "line": [
+                                            21
+                                        ]
+                                    }
+                                },
+                                "./shakemap_dtc/README.md": {
+                                    "MD047": {
+                                        "description": "File should end with a single newline character",
+                                        "line": [
+                                            4
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": false
+                }
+            },
+            "coverage": {
+                "percentage": 20,
+                "total_subcriteria": 5,
+                "success_subcriteria": 1
+            }
+        },
+        "QC.Lic": {
+            "valid": false,
+            "subcriteria": {},
+            "coverage": {
+                "percentage": 0,
+                "total_subcriteria": 0,
+                "success_subcriteria": 0
+            }
+        },
+        "QC.Sec": {
+            "valid": true,
+            "subcriteria": {
+                "QC.Sec02": {
+                    "description": "Is the source code passing Static Analysis Security Testing (SAST)?",
+                    "requirement_level": "MUST",
+                    "hint": "Please check & solve the security weaknesses found by the SAST tool",
+                    "evidence": [
+                        {
+                            "valid": true,
+                            "message": "Source code files pass SAST checks performed by bandit tool",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-bandit",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "bandit",
+                                "lang": "Python",
+                                "version": "1.7.4",
+                                "docker": {
+                                    "dockerfile": "QC.Sec/bandit/Dockerfile",
+                                    "reviewed": "2022-03-04"
+                                },
+                                "ci": {
+                                    "name": "QC.Sec gitlab.com/MondaicSupport/collaborations/dt-geo bandit",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "bandit -f json --quiet  --confidence-level high --severity-level high --recursive  ."
+                                    ],
+                                    "stdout_text": "{\n  \"errors\": [],\n  \"generated_at\": \"2025-06-06T10:29:01Z\",\n  \"metrics\": {\n    \"./ST750203.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 82,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./compss_workflows/ST750104.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 86,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./compss_workflows/ST750203.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 82,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./continental_fwi_dtc/src/continental_scale_fwi/__init__.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 6,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./continental_fwi_dtc/src/continental_scale_fwi/config.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 262,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./continental_fwi_dtc/src/continental_scale_fwi/entities/__init__.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 210,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./continental_fwi_dtc/src/continental_scale_fwi/entities/simulations.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 247,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./continental_fwi_dtc/src/continental_scale_fwi/inversion.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 356,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./continental_fwi_dtc/src/continental_scale_fwi/naming_conventions.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 80,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./continental_fwi_dtc/src/continental_scale_fwi/quality_control.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 140,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./continental_fwi_dtc/src/continental_scale_fwi/utils.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 209,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./continental_fwi_dtc/src/continental_scale_fwi/visualization.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 218,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./continental_fwi_dtc/tests/test_utils.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 42,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./examples/continental_scale_fwi/01_continental_scale_fwi_scenario.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 0,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./examples/continental_scale_fwi/02_continental_scale_fwi_example.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 68,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./examples/continental_scale_fwi/03_continental_scale_fwi_starting_from_unstructured.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 35,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./examples/shakemap/01_shakemap_scenario.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 0,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./examples/shakemap/02_shakemap_example.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 43,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./examples/shakemap/03_basel_shakemap_example.py\": {\n      \"CONFIDENCE.HIGH\": 2,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 2,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 244,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./examples/shakemap/04_historic_basel.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 34,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./examples/shakemap/05_switzerland_earthquake_visualization.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 44,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./examples/shakemap/06_historic_basel_inter_event_variability.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 55,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./shakemap_dtc/src/shakemap_dtc/__init__.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 1,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./shakemap_dtc/src/shakemap_dtc/config.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 215,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./shakemap_dtc/src/shakemap_dtc/data_sets.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 15,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./shakemap_dtc/src/shakemap_dtc/faults/__init__.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 7,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./shakemap_dtc/src/shakemap_dtc/faults/fault_models.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 339,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./shakemap_dtc/src/shakemap_dtc/faults/fault_ruptures.py\": {\n      \"CONFIDENCE.HIGH\": 3,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 1,\n      \"SEVERITY.MEDIUM\": 2,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 424,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./shakemap_dtc/src/shakemap_dtc/faults/probabilistic_sources.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 122,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./shakemap_dtc/src/shakemap_dtc/faults/slip_distributions.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 101,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./shakemap_dtc/src/shakemap_dtc/faults/source_properties.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 136,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./shakemap_dtc/src/shakemap_dtc/intensity_measures.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 250,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./shakemap_dtc/src/shakemap_dtc/plotting.py\": {\n      \"CONFIDENCE.HIGH\": 5,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 5,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 406,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./shakemap_dtc/src/shakemap_dtc/shakemap.py\": {\n      \"CONFIDENCE.HIGH\": 1,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 1,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 752,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./shakemap_dtc/src/shakemap_dtc/ui/__init__.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 0,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./shakemap_dtc/src/shakemap_dtc/ui/redirect.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 200,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./shakemap_dtc/src/shakemap_dtc/ui/ui.py\": {\n      \"CONFIDENCE.HIGH\": 7,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 5,\n      \"SEVERITY.MEDIUM\": 2,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 390,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./shakemap_dtc/src/shakemap_dtc/ui/ui_helper_functions.py\": {\n      \"CONFIDENCE.HIGH\": 2,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 1,\n      \"SEVERITY.MEDIUM\": 1,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 410,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./shakemap_dtc/src/shakemap_dtc/utils.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 120,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./shakemap_dtc/tests/test_faults_models.py\": {\n      \"CONFIDENCE.HIGH\": 2,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 2,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 22,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./shakemap_dtc/tests/test_utils.py\": {\n      \"CONFIDENCE.HIGH\": 1,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 1,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 22,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 23,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 18,\n      \"SEVERITY.MEDIUM\": 5,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 6475,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": []\n}",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/dt-geo.assess.sqaaas/job/st750203%25252F1.0.0/1/execution/node/79/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/dt-geo.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {
+                                "errors": [],
+                                "generated_at": "2025-06-06T10:29:01Z",
+                                "metrics": {
+                                    "./ST750203.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 82,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./compss_workflows/ST750104.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 86,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./compss_workflows/ST750203.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 82,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./continental_fwi_dtc/src/continental_scale_fwi/__init__.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 6,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./continental_fwi_dtc/src/continental_scale_fwi/config.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 262,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./continental_fwi_dtc/src/continental_scale_fwi/entities/__init__.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 210,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./continental_fwi_dtc/src/continental_scale_fwi/entities/simulations.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 247,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./continental_fwi_dtc/src/continental_scale_fwi/inversion.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 356,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./continental_fwi_dtc/src/continental_scale_fwi/naming_conventions.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 80,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./continental_fwi_dtc/src/continental_scale_fwi/quality_control.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 140,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./continental_fwi_dtc/src/continental_scale_fwi/utils.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 209,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./continental_fwi_dtc/src/continental_scale_fwi/visualization.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 218,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./continental_fwi_dtc/tests/test_utils.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 42,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./examples/continental_scale_fwi/01_continental_scale_fwi_scenario.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 0,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./examples/continental_scale_fwi/02_continental_scale_fwi_example.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 68,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./examples/continental_scale_fwi/03_continental_scale_fwi_starting_from_unstructured.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 35,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./examples/shakemap/01_shakemap_scenario.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 0,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./examples/shakemap/02_shakemap_example.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 43,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./examples/shakemap/03_basel_shakemap_example.py": {
+                                        "CONFIDENCE.HIGH": 2,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 2,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 244,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./examples/shakemap/04_historic_basel.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 34,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./examples/shakemap/05_switzerland_earthquake_visualization.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 44,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./examples/shakemap/06_historic_basel_inter_event_variability.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 55,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./shakemap_dtc/src/shakemap_dtc/__init__.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 1,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./shakemap_dtc/src/shakemap_dtc/config.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 215,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./shakemap_dtc/src/shakemap_dtc/data_sets.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 15,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./shakemap_dtc/src/shakemap_dtc/faults/__init__.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 7,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./shakemap_dtc/src/shakemap_dtc/faults/fault_models.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 339,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./shakemap_dtc/src/shakemap_dtc/faults/fault_ruptures.py": {
+                                        "CONFIDENCE.HIGH": 3,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 1,
+                                        "SEVERITY.MEDIUM": 2,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 424,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./shakemap_dtc/src/shakemap_dtc/faults/probabilistic_sources.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 122,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./shakemap_dtc/src/shakemap_dtc/faults/slip_distributions.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 101,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./shakemap_dtc/src/shakemap_dtc/faults/source_properties.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 136,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./shakemap_dtc/src/shakemap_dtc/intensity_measures.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 250,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./shakemap_dtc/src/shakemap_dtc/plotting.py": {
+                                        "CONFIDENCE.HIGH": 5,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 5,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 406,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./shakemap_dtc/src/shakemap_dtc/shakemap.py": {
+                                        "CONFIDENCE.HIGH": 1,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 1,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 752,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./shakemap_dtc/src/shakemap_dtc/ui/__init__.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 0,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./shakemap_dtc/src/shakemap_dtc/ui/redirect.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 200,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./shakemap_dtc/src/shakemap_dtc/ui/ui.py": {
+                                        "CONFIDENCE.HIGH": 7,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 5,
+                                        "SEVERITY.MEDIUM": 2,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 390,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./shakemap_dtc/src/shakemap_dtc/ui/ui_helper_functions.py": {
+                                        "CONFIDENCE.HIGH": 2,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 1,
+                                        "SEVERITY.MEDIUM": 1,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 410,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./shakemap_dtc/src/shakemap_dtc/utils.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 120,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./shakemap_dtc/tests/test_faults_models.py": {
+                                        "CONFIDENCE.HIGH": 2,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 2,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 22,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./shakemap_dtc/tests/test_utils.py": {
+                                        "CONFIDENCE.HIGH": 1,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 1,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 22,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "_totals": {
+                                        "CONFIDENCE.HIGH": 23,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 18,
+                                        "SEVERITY.MEDIUM": 5,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 6475,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    }
+                                },
+                                "results": []
+                            }
+                        }
+                    ],
+                    "valid": true
+                }
+            },
+            "coverage": {
+                "percentage": 100,
+                "total_subcriteria": 1,
+                "success_subcriteria": 1
+            }
+        },
+        "QC.Sty": {
+            "valid": false,
+            "subcriteria": {
+                "QC.Sty01": {
+                    "description": "Is the software product following a style standard for Python files?",
+                    "requirement_level": "MUST",
+                    "hint": "Please check & solve the security weaknesses found by the linter tool",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "Python files are not fully compliant with flake8 (pycodestyle, pyflakes, mccabe) standard",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-flake8",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "flake8",
+                                "lang": "Python",
+                                "version": "4.0.1 (mccabe: 0.6.1, pycodestyle: 2.8.0, pyflakes: 2.4.0)",
+                                "docker": {
+                                    "image": "pipelinecomponents/flake8:0.9.0",
+                                    "reviewed": "2022-03-04"
+                                },
+                                "ci": {
+                                    "name": "QC.Sty gitlab.com/MondaicSupport/collaborations/dt-geo flake8",
+                                    "status": "FAILED",
+                                    "stdout_command": [
+                                        "flake8 ."
+                                    ],
+                                    "stdout_text": "./ST750203.py:5:1: F403 'from pycompss.api.parameter import *' used; unable to detect undefined names\n./ST750203.py:13:80: E501 line too long (103 > 79 characters)\n./ST750203.py:18:1: E302 expected 2 blank lines, found 1\n./ST750203.py:19:23: F405 'FILE_OUT' may be undefined, or defined from star imports: pycompss.api.parameter\n./ST750203.py:20:27: F405 'DIRECTORY_INOUT' may be undefined, or defined from star imports: pycompss.api.parameter\n./ST750203.py:20:43: W291 trailing whitespace\n./ST750203.py:21:24: F405 'FILE_IN' may be undefined, or defined from star imports: pycompss.api.parameter\n./ST750203.py:22:29: F405 'FILE_IN' may be undefined, or defined from star imports: pycompss.api.parameter\n./ST750203.py:22:37: W291 trailing whitespace\n./ST750203.py:23:35: F405 'IN' may be undefined, or defined from star imports: pycompss.api.parameter\n./ST750203.py:24:29: F405 'IN' may be undefined, or defined from star imports: pycompss.api.parameter\n./ST750203.py:25:19: F405 'IN' may be undefined, or defined from star imports: pycompss.api.parameter\n./ST750203.py:26:15: F405 'IN' may be undefined, or defined from star imports: pycompss.api.parameter\n./ST750203.py:27:27: F405 'IN' may be undefined, or defined from star imports: pycompss.api.parameter\n./ST750203.py:30:19: W291 trailing whitespace\n./ST750203.py:31:23: W291 trailing whitespace\n./ST750203.py:32:20: W291 trailing whitespace\n./ST750203.py:33:25: W291 trailing whitespace\n./ST750203.py:34:31: W291 trailing whitespace\n./ST750203.py:35:25: W291 trailing whitespace\n./ST750203.py:36:15: W291 trailing whitespace\n./ST750203.py:37:11: W291 trailing whitespace\n./ST750203.py:77:12: E225 missing whitespace around operator\n./ST750203.py:85:10: E225 missing whitespace around operator\n./ST750203.py:89:23: W291 trailing whitespace\n./ST750203.py:90:27: W291 trailing whitespace\n./ST750203.py:91:24: W291 trailing whitespace\n./ST750203.py:92:29: W291 trailing whitespace\n./ST750203.py:93:35: W291 trailing whitespace\n./ST750203.py:94:29: W291 trailing whitespace\n./ST750203.py:95:19: W291 trailing whitespace\n./ST750203.py:96:15: W291 trailing whitespace\n./compss_workflows/ST750104.py:2:1: F401 'matplotlib.pyplot as plt' imported but unused\n./compss_workflows/ST750104.py:5:1: F403 'from pycompss.api.parameter import *' used; unable to detect undefined names\n./compss_workflows/ST750104.py:14:80: E501 line too long (103 > 79 characters)\n./compss_workflows/ST750104.py:19:1: E302 expected 2 blank lines, found 1\n./compss_workflows/ST750104.py:20:24: F405 'FILE_IN' may be undefined, or defined from star imports: pycompss.api.parameter\n./compss_workflows/ST750104.py:21:21: F405 'FILE_OUT' may be undefined, or defined from star imports: pycompss.api.parameter\n./compss_workflows/ST750104.py:22:21: F405 'DIRECTORY_INOUT' may be undefined, or defined from star imports: pycompss.api.parameter\n./compss_workflows/ST750104.py:22:37: W291 trailing whitespace\n./compss_workflows/ST750104.py:23:19: F405 'DIRECTORY_IN' may be undefined, or defined from star imports: pycompss.api.parameter\n./compss_workflows/ST750104.py:24:19: F405 'IN' may be undefined, or defined from star imports: pycompss.api.parameter\n./compss_workflows/ST750104.py:25:15: F405 'IN' may be undefined, or defined from star imports: pycompss.api.parameter\n./compss_workflows/ST750104.py:29:17: W291 trailing whitespace\n./compss_workflows/ST750104.py:31:20: W291 trailing whitespace\n./compss_workflows/ST750104.py:32:15: W291 trailing whitespace\n./compss_workflows/ST750104.py:33:11: W291 trailing whitespace\n./compss_workflows/ST750104.py:48:1: W293 blank line contains whitespace\n./compss_workflows/ST750104.py:68:80: E501 line too long (83 > 79 characters)\n./compss_workflows/ST750104.py:95:1: E303 too many blank lines (4)\n./compss_workflows/ST750104.py:95:12: E225 missing whitespace around operator\n./compss_workflows/ST750104.py:101:10: E225 missing whitespace around operator\n./compss_workflows/ST750104.py:105:21: W291 trailing whitespace\n./compss_workflows/ST750104.py:106:27: W291 trailing whitespace\n./compss_workflows/ST750104.py:107:19: W291 trailing whitespace\n./compss_workflows/ST750104.py:108:15: W291 trailing whitespace\n./compss_workflows/ST750104.py:109:1: W293 blank line contains whitespace\n./compss_workflows/ST750203.py:5:1: F403 'from pycompss.api.parameter import *' used; unable to detect undefined names\n./compss_workflows/ST750203.py:13:80: E501 line too long (103 > 79 characters)\n./compss_workflows/ST750203.py:18:1: E302 expected 2 blank lines, found 1\n./compss_workflows/ST750203.py:19:23: F405 'FILE_OUT' may be undefined, or defined from star imports: pycompss.api.parameter\n./compss_workflows/ST750203.py:20:27: F405 'DIRECTORY_INOUT' may be undefined, or defined from star imports: pycompss.api.parameter\n./compss_workflows/ST750203.py:20:43: W291 trailing whitespace\n./compss_workflows/ST750203.py:21:24: F405 'FILE_IN' may be undefined, or defined from star imports: pycompss.api.parameter\n./compss_workflows/ST750203.py:22:29: F405 'FILE_IN' may be undefined, or defined from star imports: pycompss.api.parameter\n./compss_workflows/ST750203.py:22:37: W291 trailing whitespace\n./compss_workflows/ST750203.py:23:35: F405 'IN' may be undefined, or defined from star imports: pycompss.api.parameter\n./compss_workflows/ST750203.py:24:29: F405 'IN' may be undefined, or defined from star imports: pycompss.api.parameter\n./compss_workflows/ST750203.py:25:19: F405 'IN' may be undefined, or defined from star imports: pycompss.api.parameter\n./compss_workflows/ST750203.py:26:15: F405 'IN' may be undefined, or defined from star imports: pycompss.api.parameter\n./compss_workflows/ST750203.py:27:27: F405 'IN' may be undefined, or defined from star imports: pycompss.api.parameter\n./compss_workflows/ST750203.py:30:19: W291 trailing whitespace\n./compss_workflows/ST750203.py:31:23: W291 trailing whitespace\n./compss_workflows/ST750203.py:32:20: W291 trailing whitespace\n./compss_workflows/ST750203.py:33:25: W291 trailing whitespace\n./compss_workflows/ST750203.py:34:31: W291 trailing whitespace\n./compss_workflows/ST750203.py:35:25: W291 trailing whitespace\n./compss_workflows/ST750203.py:36:15: W291 trailing whitespace\n./compss_workflows/ST750203.py:37:11: W291 trailing whitespace\n./compss_workflows/ST750203.py:77:12: E225 missing whitespace around operator\n./compss_workflows/ST750203.py:85:10: E225 missing whitespace around operator\n./compss_workflows/ST750203.py:89:23: W291 trailing whitespace\n./compss_workflows/ST750203.py:90:27: W291 trailing whitespace\n./compss_workflows/ST750203.py:91:24: W291 trailing whitespace\n./compss_workflows/ST750203.py:92:29: W291 trailing whitespace\n./compss_workflows/ST750203.py:93:35: W291 trailing whitespace\n./compss_workflows/ST750203.py:94:29: W291 trailing whitespace\n./compss_workflows/ST750203.py:95:19: W291 trailing whitespace\n./compss_workflows/ST750203.py:96:15: W291 trailing whitespace\n./continental_fwi_dtc/src/continental_scale_fwi/naming_conventions.py:117:80: E501 line too long (94 > 79 characters)\n./continental_fwi_dtc/src/continental_scale_fwi/quality_control.py:87:80: E501 line too long (95 > 79 characters)\n./shakemap_dtc/tests/test_faults_models.py:41:1: W293 blank line contains whitespace\n./shakemap_dtc/tests/test_faults_models.py:44:1: W293 blank line contains whitespace\n./shakemap_dtc/tests/test_faults_models.py:46:69: W292 no newline at end of file\n./shakemap_dtc/src/shakemap_dtc/plotting.py:27:1: F401 'cmasher' imported but unused\n./shakemap_dtc/src/shakemap_dtc/plotting.py:28:80: E501 line too long (85 > 79 characters)\n./shakemap_dtc/src/shakemap_dtc/plotting.py:138:28: W291 trailing whitespace\n./shakemap_dtc/src/shakemap_dtc/plotting.py:139:25: W291 trailing whitespace\n./shakemap_dtc/src/shakemap_dtc/plotting.py:159:25: W291 trailing whitespace\n./shakemap_dtc/src/shakemap_dtc/plotting.py:160:21: W291 trailing whitespace\n./shakemap_dtc/src/shakemap_dtc/plotting.py:161:27: W291 trailing whitespace\n./shakemap_dtc/src/shakemap_dtc/plotting.py:162:33: W291 trailing whitespace\n./shakemap_dtc/src/shakemap_dtc/plotting.py:163:41: W291 trailing whitespace\n./shakemap_dtc/src/shakemap_dtc/plotting.py:330:80: E501 line too long (85 > 79 characters)\n./shakemap_dtc/src/shakemap_dtc/plotting.py:363:33: E203 whitespace before ':'\n./shakemap_dtc/src/shakemap_dtc/plotting.py:455:80: E501 line too long (82 > 79 characters)\n./shakemap_dtc/src/shakemap_dtc/plotting.py:462:1: W293 blank line contains whitespace\n./shakemap_dtc/src/shakemap_dtc/plotting.py:465:80: E501 line too long (81 > 79 characters)\n./shakemap_dtc/src/shakemap_dtc/shakemap.py:178:80: E501 line too long (84 > 79 characters)\n./shakemap_dtc/src/shakemap_dtc/shakemap.py:202:36: E203 whitespace before ':'\n./shakemap_dtc/src/shakemap_dtc/shakemap.py:203:36: E203 whitespace before ':'\n./shakemap_dtc/src/shakemap_dtc/shakemap.py:205:33: E203 whitespace before ':'\n./shakemap_dtc/src/shakemap_dtc/shakemap.py:205:58: E203 whitespace before ':'\n./shakemap_dtc/src/shakemap_dtc/shakemap.py:208:80: E501 line too long (83 > 79 characters)\n./shakemap_dtc/src/shakemap_dtc/shakemap.py:250:80: E501 line too long (81 > 79 characters)\n./shakemap_dtc/src/shakemap_dtc/shakemap.py:298:24: E225 missing whitespace around operator\n./shakemap_dtc/src/shakemap_dtc/shakemap.py:334:72: W291 trailing whitespace\n./shakemap_dtc/src/shakemap_dtc/shakemap.py:335:42: W291 trailing whitespace\n./shakemap_dtc/src/shakemap_dtc/shakemap.py:356:80: E501 line too long (85 > 79 characters)\n./shakemap_dtc/src/shakemap_dtc/shakemap.py:358:80: E501 line too long (80 > 79 characters)\n./shakemap_dtc/src/shakemap_dtc/shakemap.py:419:80: E501 line too long (100 > 79 characters)\n./shakemap_dtc/src/shakemap_dtc/ui/redirect.py:20:80: E501 line too long (128 > 79 characters)\n./shakemap_dtc/src/shakemap_dtc/ui/redirect.py:64:60: E203 whitespace before ':'\n./shakemap_dtc/src/shakemap_dtc/ui/ui.py:369:80: E501 line too long (94 > 79 characters)\n./shakemap_dtc/src/shakemap_dtc/ui/ui.py:431:80: E501 line too long (83 > 79 characters)\n./shakemap_dtc/src/shakemap_dtc/faults/__init__.py:18:1: F401 '.fault_models.SimpleFault' imported but unused\n./shakemap_dtc/src/shakemap_dtc/faults/__init__.py:19:1: F401 '.fault_ruptures.SimpleFaultRupture' imported but unused\n./shakemap_dtc/src/shakemap_dtc/faults/__init__.py:20:1: F401 '.slip_distributions.UniformSlipDistribution' imported but unused\n./shakemap_dtc/src/shakemap_dtc/faults/__init__.py:20:1: F401 '.slip_distributions.GaussianSlipDistribution' imported but unused\n./shakemap_dtc/src/shakemap_dtc/faults/__init__.py:24:1: F401 '.probabilistic_sources.ProbabilisticSimpleFaultRupture' imported but unused\n./examples/continental_scale_fwi/01_continental_scale_fwi_scenario.py:18:80: E501 line too long (84 > 79 characters)\n./examples/continental_scale_fwi/01_continental_scale_fwi_scenario.py:47:80: E501 line too long (183 > 79 characters)\n./examples/continental_scale_fwi/01_continental_scale_fwi_scenario.py:51:80: E501 line too long (95 > 79 characters)\n./examples/continental_scale_fwi/01_continental_scale_fwi_scenario.py:53:80: E501 line too long (114 > 79 characters)\n./examples/shakemap/01_shakemap_scenario.py:16:80: E501 line too long (86 > 79 characters)\n./examples/shakemap/01_shakemap_scenario.py:24:80: E501 line too long (84 > 79 characters)\n./examples/shakemap/01_shakemap_scenario.py:27:80: E501 line too long (166 > 79 characters)\n./examples/shakemap/01_shakemap_scenario.py:31:80: E501 line too long (181 > 79 characters)\n./examples/shakemap/01_shakemap_scenario.py:33:80: E501 line too long (218 > 79 characters)\n./examples/shakemap/03_basel_shakemap_example.py:30:1: F401 'salvus.flow.simple_config.receiver.seismology.SideSetPoint3D' imported but unused\n./examples/shakemap/03_basel_shakemap_example.py:182:80: E501 line too long (80 > 79 characters)\n./examples/shakemap/03_basel_shakemap_example.py:187:9: E722 do not use bare 'except'\n./examples/shakemap/03_basel_shakemap_example.py:329:80: E501 line too long (91 > 79 characters)\n./examples/shakemap/05_switzerland_earthquake_visualization.py:7:1: F401 'salvus.namespace as sn' imported but unused\n./examples/shakemap/06_historic_basel_inter_event_variability.py:13:80: E501 line too long (85 > 79 characters)\n./examples/shakemap/06_historic_basel_inter_event_variability.py:14:80: E501 line too long (80 > 79 characters)\n./examples/shakemap/06_historic_basel_inter_event_variability.py:15:80: E501 line too long (84 > 79 characters)\n./examples/shakemap/06_historic_basel_inter_event_variability.py:17:80: E501 line too long (94 > 79 characters)\n./examples/shakemap/06_historic_basel_inter_event_variability.py:18:80: E501 line too long (81 > 79 characters)\n./examples/shakemap/06_historic_basel_inter_event_variability.py:27:80: E501 line too long (96 > 79 characters)\n./examples/shakemap/06_historic_basel_inter_event_variability.py:32:80: E501 line too long (91 > 79 characters)\n./examples/shakemap/06_historic_basel_inter_event_variability.py:33:80: E501 line too long (87 > 79 characters)\n./examples/shakemap/06_historic_basel_inter_event_variability.py:34:80: E501 line too long (93 > 79 characters)\n./examples/shakemap/06_historic_basel_inter_event_variability.py:69:80: E501 line too long (100 > 79 characters)\n./examples/shakemap/06_historic_basel_inter_event_variability.py:70:80: E501 line too long (100 > 79 characters)\n./examples/shakemap/06_historic_basel_inter_event_variability.py:71:80: E501 line too long (100 > 79 characters)\n./examples/shakemap/06_historic_basel_inter_event_variability.py:72:80: E501 line too long (100 > 79 characters)\n./examples/shakemap/02_shakemap_example.py:19:1: F401 'salvus.namespace as sn' imported but unused\n./examples/shakemap/04_historic_basel.py:9:1: F401 'salvus.namespace as sn' imported but unused\n./examples/shakemap/04_historic_basel.py:12:80: E501 line too long (102 > 79 characters)\n./examples/shakemap/04_historic_basel.py:27:80: E501 line too long (91 > 79 characters)\n./examples/shakemap/04_historic_basel.py:28:80: E501 line too long (102 > 79 characters)\n./examples/shakemap/04_historic_basel.py:29:80: E501 line too long (103 > 79 characters)\n./examples/shakemap/04_historic_basel.py:30:80: E501 line too long (106 > 79 characters)\n./examples/shakemap/04_historic_basel.py:38:80: E501 line too long (545 > 79 characters)\n./examples/shakemap/04_historic_basel.py:44:80: E501 line too long (133 > 79 characters)\n./examples/shakemap/04_historic_basel.py:81:50: W291 trailing whitespace",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/dt-geo.assess.sqaaas/job/st750203%25252F1.0.0/1/execution/node/88/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/dt-geo.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": "./ST750203.py:5:1: F403 'from pycompss.api.parameter import *' used; unable to detect undefined names\n./ST750203.py:13:80: E501 line too long (103 > 79 characters)\n./ST750203.py:18:1: E302 expected 2 blank lines, found 1\n./ST750203.py:19:23: F405 'FILE_OUT' may be undefined, or defined from star imports: pycompss.api.parameter\n./ST750203.py:20:27: F405 'DIRECTORY_INOUT' may be undefined, or defined from star imports: pycompss.api.parameter\n./ST750203.py:20:43: W291 trailing whitespace\n./ST750203.py:21:24: F405 'FILE_IN' may be undefined, or defined from star imports: pycompss.api.parameter\n./ST750203.py:22:29: F405 'FILE_IN' may be undefined, or defined from star imports: pycompss.api.parameter\n./ST750203.py:22:37: W291 trailing whitespace\n./ST750203.py:23:35: F405 'IN' may be undefined, or defined from star imports: pycompss.api.parameter\n./ST750203.py:24:29: F405 'IN' may be undefined, or defined from star imports: pycompss.api.parameter\n./ST750203.py:25:19: F405 'IN' may be undefined, or defined from star imports: pycompss.api.parameter\n./ST750203.py:26:15: F405 'IN' may be undefined, or defined from star imports: pycompss.api.parameter\n./ST750203.py:27:27: F405 'IN' may be undefined, or defined from star imports: pycompss.api.parameter\n./ST750203.py:30:19: W291 trailing whitespace\n./ST750203.py:31:23: W291 trailing whitespace\n./ST750203.py:32:20: W291 trailing whitespace\n./ST750203.py:33:25: W291 trailing whitespace\n./ST750203.py:34:31: W291 trailing whitespace\n./ST750203.py:35:25: W291 trailing whitespace\n./ST750203.py:36:15: W291 trailing whitespace\n./ST750203.py:37:11: W291 trailing whitespace\n./ST750203.py:77:12: E225 missing whitespace around operator\n./ST750203.py:85:10: E225 missing whitespace around operator\n./ST750203.py:89:23: W291 trailing whitespace\n./ST750203.py:90:27: W291 trailing whitespace\n./ST750203.py:91:24: W291 trailing whitespace\n./ST750203.py:92:29: W291 trailing whitespace\n./ST750203.py:93:35: W291 trailing whitespace\n./ST750203.py:94:29: W291 trailing whitespace\n./ST750203.py:95:19: W291 trailing whitespace\n./ST750203.py:96:15: W291 trailing whitespace\n./compss_workflows/ST750104.py:2:1: F401 'matplotlib.pyplot as plt' imported but unused\n./compss_workflows/ST750104.py:5:1: F403 'from pycompss.api.parameter import *' used; unable to detect undefined names\n./compss_workflows/ST750104.py:14:80: E501 line too long (103 > 79 characters)\n./compss_workflows/ST750104.py:19:1: E302 expected 2 blank lines, found 1\n./compss_workflows/ST750104.py:20:24: F405 'FILE_IN' may be undefined, or defined from star imports: pycompss.api.parameter\n./compss_workflows/ST750104.py:21:21: F405 'FILE_OUT' may be undefined, or defined from star imports: pycompss.api.parameter\n./compss_workflows/ST750104.py:22:21: F405 'DIRECTORY_INOUT' may be undefined, or defined from star imports: pycompss.api.parameter\n./compss_workflows/ST750104.py:22:37: W291 trailing whitespace\n./compss_workflows/ST750104.py:23:19: F405 'DIRECTORY_IN' may be undefined, or defined from star imports: pycompss.api.parameter\n./compss_workflows/ST750104.py:24:19: F405 'IN' may be undefined, or defined from star imports: pycompss.api.parameter\n./compss_workflows/ST750104.py:25:15: F405 'IN' may be undefined, or defined from star imports: pycompss.api.parameter\n./compss_workflows/ST750104.py:29:17: W291 trailing whitespace\n./compss_workflows/ST750104.py:31:20: W291 trailing whitespace\n./compss_workflows/ST750104.py:32:15: W291 trailing whitespace\n./compss_workflows/ST750104.py:33:11: W291 trailing whitespace\n./compss_workflows/ST750104.py:48:1: W293 blank line contains whitespace\n./compss_workflows/ST750104.py:68:80: E501 line too long (83 > 79 characters)\n./compss_workflows/ST750104.py:95:1: E303 too many blank lines (4)\n./compss_workflows/ST750104.py:95:12: E225 missing whitespace around operator\n./compss_workflows/ST750104.py:101:10: E225 missing whitespace around operator\n./compss_workflows/ST750104.py:105:21: W291 trailing whitespace\n./compss_workflows/ST750104.py:106:27: W291 trailing whitespace\n./compss_workflows/ST750104.py:107:19: W291 trailing whitespace\n./compss_workflows/ST750104.py:108:15: W291 trailing whitespace\n./compss_workflows/ST750104.py:109:1: W293 blank line contains whitespace\n./compss_workflows/ST750203.py:5:1: F403 'from pycompss.api.parameter import *' used; unable to detect undefined names\n./compss_workflows/ST750203.py:13:80: E501 line too long (103 > 79 characters)\n./compss_workflows/ST750203.py:18:1: E302 expected 2 blank lines, found 1\n./compss_workflows/ST750203.py:19:23: F405 'FILE_OUT' may be undefined, or defined from star imports: pycompss.api.parameter\n./compss_workflows/ST750203.py:20:27: F405 'DIRECTORY_INOUT' may be undefined, or defined from star imports: pycompss.api.parameter\n./compss_workflows/ST750203.py:20:43: W291 trailing whitespace\n./compss_workflows/ST750203.py:21:24: F405 'FILE_IN' may be undefined, or defined from star imports: pycompss.api.parameter\n./compss_workflows/ST750203.py:22:29: F405 'FILE_IN' may be undefined, or defined from star imports: pycompss.api.parameter\n./compss_workflows/ST750203.py:22:37: W291 trailing whitespace\n./compss_workflows/ST750203.py:23:35: F405 'IN' may be undefined, or defined from star imports: pycompss.api.parameter\n./compss_workflows/ST750203.py:24:29: F405 'IN' may be undefined, or defined from star imports: pycompss.api.parameter\n./compss_workflows/ST750203.py:25:19: F405 'IN' may be undefined, or defined from star imports: pycompss.api.parameter\n./compss_workflows/ST750203.py:26:15: F405 'IN' may be undefined, or defined from star imports: pycompss.api.parameter\n./compss_workflows/ST750203.py:27:27: F405 'IN' may be undefined, or defined from star imports: pycompss.api.parameter\n./compss_workflows/ST750203.py:30:19: W291 trailing whitespace\n./compss_workflows/ST750203.py:31:23: W291 trailing whitespace\n./compss_workflows/ST750203.py:32:20: W291 trailing whitespace\n./compss_workflows/ST750203.py:33:25: W291 trailing whitespace\n./compss_workflows/ST750203.py:34:31: W291 trailing whitespace\n./compss_workflows/ST750203.py:35:25: W291 trailing whitespace\n./compss_workflows/ST750203.py:36:15: W291 trailing whitespace\n./compss_workflows/ST750203.py:37:11: W291 trailing whitespace\n./compss_workflows/ST750203.py:77:12: E225 missing whitespace around operator\n./compss_workflows/ST750203.py:85:10: E225 missing whitespace around operator\n./compss_workflows/ST750203.py:89:23: W291 trailing whitespace\n./compss_workflows/ST750203.py:90:27: W291 trailing whitespace\n./compss_workflows/ST750203.py:91:24: W291 trailing whitespace\n./compss_workflows/ST750203.py:92:29: W291 trailing whitespace\n./compss_workflows/ST750203.py:93:35: W291 trailing whitespace\n./compss_workflows/ST750203.py:94:29: W291 trailing whitespace\n./compss_workflows/ST750203.py:95:19: W291 trailing whitespace\n./compss_workflows/ST750203.py:96:15: W291 trailing whitespace\n./continental_fwi_dtc/src/continental_scale_fwi/naming_conventions.py:117:80: E501 line too long (94 > 79 characters)\n./continental_fwi_dtc/src/continental_scale_fwi/quality_control.py:87:80: E501 line too long (95 > 79 characters)\n./shakemap_dtc/tests/test_faults_models.py:41:1: W293 blank line contains whitespace\n./shakemap_dtc/tests/test_faults_models.py:44:1: W293 blank line contains whitespace\n./shakemap_dtc/tests/test_faults_models.py:46:69: W292 no newline at end of file\n./shakemap_dtc/src/shakemap_dtc/plotting.py:27:1: F401 'cmasher' imported but unused\n./shakemap_dtc/src/shakemap_dtc/plotting.py:28:80: E501 line too long (85 > 79 characters)\n./shakemap_dtc/src/shakemap_dtc/plotting.py:138:28: W291 trailing whitespace\n./shakemap_dtc/src/shakemap_dtc/plotting.py:139:25: W291 trailing whitespace\n./shakemap_dtc/src/shakemap_dtc/plotting.py:159:25: W291 trailing whitespace\n./shakemap_dtc/src/shakemap_dtc/plotting.py:160:21: W291 trailing whitespace\n./shakemap_dtc/src/shakemap_dtc/plotting.py:161:27: W291 trailing whitespace\n./shakemap_dtc/src/shakemap_dtc/plotting.py:162:33: W291 trailing whitespace\n./shakemap_dtc/src/shakemap_dtc/plotting.py:163:41: W291 trailing whitespace\n./shakemap_dtc/src/shakemap_dtc/plotting.py:330:80: E501 line too long (85 > 79 characters)\n./shakemap_dtc/src/shakemap_dtc/plotting.py:363:33: E203 whitespace before ':'\n./shakemap_dtc/src/shakemap_dtc/plotting.py:455:80: E501 line too long (82 > 79 characters)\n./shakemap_dtc/src/shakemap_dtc/plotting.py:462:1: W293 blank line contains whitespace\n./shakemap_dtc/src/shakemap_dtc/plotting.py:465:80: E501 line too long (81 > 79 characters)\n./shakemap_dtc/src/shakemap_dtc/shakemap.py:178:80: E501 line too long (84 > 79 characters)\n./shakemap_dtc/src/shakemap_dtc/shakemap.py:202:36: E203 whitespace before ':'\n./shakemap_dtc/src/shakemap_dtc/shakemap.py:203:36: E203 whitespace before ':'\n./shakemap_dtc/src/shakemap_dtc/shakemap.py:205:33: E203 whitespace before ':'\n./shakemap_dtc/src/shakemap_dtc/shakemap.py:205:58: E203 whitespace before ':'\n./shakemap_dtc/src/shakemap_dtc/shakemap.py:208:80: E501 line too long (83 > 79 characters)\n./shakemap_dtc/src/shakemap_dtc/shakemap.py:250:80: E501 line too long (81 > 79 characters)\n./shakemap_dtc/src/shakemap_dtc/shakemap.py:298:24: E225 missing whitespace around operator\n./shakemap_dtc/src/shakemap_dtc/shakemap.py:334:72: W291 trailing whitespace\n./shakemap_dtc/src/shakemap_dtc/shakemap.py:335:42: W291 trailing whitespace\n./shakemap_dtc/src/shakemap_dtc/shakemap.py:356:80: E501 line too long (85 > 79 characters)\n./shakemap_dtc/src/shakemap_dtc/shakemap.py:358:80: E501 line too long (80 > 79 characters)\n./shakemap_dtc/src/shakemap_dtc/shakemap.py:419:80: E501 line too long (100 > 79 characters)\n./shakemap_dtc/src/shakemap_dtc/ui/redirect.py:20:80: E501 line too long (128 > 79 characters)\n./shakemap_dtc/src/shakemap_dtc/ui/redirect.py:64:60: E203 whitespace before ':'\n./shakemap_dtc/src/shakemap_dtc/ui/ui.py:369:80: E501 line too long (94 > 79 characters)\n./shakemap_dtc/src/shakemap_dtc/ui/ui.py:431:80: E501 line too long (83 > 79 characters)\n./shakemap_dtc/src/shakemap_dtc/faults/__init__.py:18:1: F401 '.fault_models.SimpleFault' imported but unused\n./shakemap_dtc/src/shakemap_dtc/faults/__init__.py:19:1: F401 '.fault_ruptures.SimpleFaultRupture' imported but unused\n./shakemap_dtc/src/shakemap_dtc/faults/__init__.py:20:1: F401 '.slip_distributions.UniformSlipDistribution' imported but unused\n./shakemap_dtc/src/shakemap_dtc/faults/__init__.py:20:1: F401 '.slip_distributions.GaussianSlipDistribution' imported but unused\n./shakemap_dtc/src/shakemap_dtc/faults/__init__.py:24:1: F401 '.probabilistic_sources.ProbabilisticSimpleFaultRupture' imported but unused\n./examples/continental_scale_fwi/01_continental_scale_fwi_scenario.py:18:80: E501 line too long (84 > 79 characters)\n./examples/continental_scale_fwi/01_continental_scale_fwi_scenario.py:47:80: E501 line too long (183 > 79 characters)\n./examples/continental_scale_fwi/01_continental_scale_fwi_scenario.py:51:80: E501 line too long (95 > 79 characters)\n./examples/continental_scale_fwi/01_continental_scale_fwi_scenario.py:53:80: E501 line too long (114 > 79 characters)\n./examples/shakemap/01_shakemap_scenario.py:16:80: E501 line too long (86 > 79 characters)\n./examples/shakemap/01_shakemap_scenario.py:24:80: E501 line too long (84 > 79 characters)\n./examples/shakemap/01_shakemap_scenario.py:27:80: E501 line too long (166 > 79 characters)\n./examples/shakemap/01_shakemap_scenario.py:31:80: E501 line too long (181 > 79 characters)\n./examples/shakemap/01_shakemap_scenario.py:33:80: E501 line too long (218 > 79 characters)\n./examples/shakemap/03_basel_shakemap_example.py:30:1: F401 'salvus.flow.simple_config.receiver.seismology.SideSetPoint3D' imported but unused\n./examples/shakemap/03_basel_shakemap_example.py:182:80: E501 line too long (80 > 79 characters)\n./examples/shakemap/03_basel_shakemap_example.py:187:9: E722 do not use bare 'except'\n./examples/shakemap/03_basel_shakemap_example.py:329:80: E501 line too long (91 > 79 characters)\n./examples/shakemap/05_switzerland_earthquake_visualization.py:7:1: F401 'salvus.namespace as sn' imported but unused\n./examples/shakemap/06_historic_basel_inter_event_variability.py:13:80: E501 line too long (85 > 79 characters)\n./examples/shakemap/06_historic_basel_inter_event_variability.py:14:80: E501 line too long (80 > 79 characters)\n./examples/shakemap/06_historic_basel_inter_event_variability.py:15:80: E501 line too long (84 > 79 characters)\n./examples/shakemap/06_historic_basel_inter_event_variability.py:17:80: E501 line too long (94 > 79 characters)\n./examples/shakemap/06_historic_basel_inter_event_variability.py:18:80: E501 line too long (81 > 79 characters)\n./examples/shakemap/06_historic_basel_inter_event_variability.py:27:80: E501 line too long (96 > 79 characters)\n./examples/shakemap/06_historic_basel_inter_event_variability.py:32:80: E501 line too long (91 > 79 characters)\n./examples/shakemap/06_historic_basel_inter_event_variability.py:33:80: E501 line too long (87 > 79 characters)\n./examples/shakemap/06_historic_basel_inter_event_variability.py:34:80: E501 line too long (93 > 79 characters)\n./examples/shakemap/06_historic_basel_inter_event_variability.py:69:80: E501 line too long (100 > 79 characters)\n./examples/shakemap/06_historic_basel_inter_event_variability.py:70:80: E501 line too long (100 > 79 characters)\n./examples/shakemap/06_historic_basel_inter_event_variability.py:71:80: E501 line too long (100 > 79 characters)\n./examples/shakemap/06_historic_basel_inter_event_variability.py:72:80: E501 line too long (100 > 79 characters)\n./examples/shakemap/02_shakemap_example.py:19:1: F401 'salvus.namespace as sn' imported but unused\n./examples/shakemap/04_historic_basel.py:9:1: F401 'salvus.namespace as sn' imported but unused\n./examples/shakemap/04_historic_basel.py:12:80: E501 line too long (102 > 79 characters)\n./examples/shakemap/04_historic_basel.py:27:80: E501 line too long (91 > 79 characters)\n./examples/shakemap/04_historic_basel.py:28:80: E501 line too long (102 > 79 characters)\n./examples/shakemap/04_historic_basel.py:29:80: E501 line too long (103 > 79 characters)\n./examples/shakemap/04_historic_basel.py:30:80: E501 line too long (106 > 79 characters)\n./examples/shakemap/04_historic_basel.py:38:80: E501 line too long (545 > 79 characters)\n./examples/shakemap/04_historic_basel.py:44:80: E501 line too long (133 > 79 characters)\n./examples/shakemap/04_historic_basel.py:81:50: W291 trailing whitespace"
+                        },
+                        {
+                            "valid": false,
+                            "message": "Dockerfile files are not fully compliant with hadolint standard",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-jenkins_exit_status",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "hadolint",
+                                "lang": "Dockerfile",
+                                "version": "v2.8.0-0-g398770f-dirty",
+                                "docker": {
+                                    "image": "hadolint/hadolint:2.8.0-alpine",
+                                    "reviewed": "2021-06-21"
+                                },
+                                "ci": {
+                                    "name": "QC.Sty gitlab.com/MondaicSupport/collaborations/dt-geo hadolint",
+                                    "status": "FAILED",
+                                    "stdout_command": [
+                                        "hadolint docker-image-cineca/Dockerfile --failure-threshold error"
+                                    ],
+                                    "stdout_text": "docker-image-cineca/Dockerfile:10 DL3007 \u001b[1m\u001b[93mwarning\u001b[0m: Using latest is prone to errors if the image will ever update. Pin the version explicitly to a release tag\ndocker-image-cineca/Dockerfile:14 DL3008 \u001b[1m\u001b[93mwarning\u001b[0m: Pin versions in apt get install. Instead of `apt-get install <package>` use `apt-get install <package>=<version>`\ndocker-image-cineca/Dockerfile:26 SC2239 \u001b[1m\u001b[91merror\u001b[0m: Ensure the shebang uses an absolute path to the interpreter.\ndocker-image-cineca/Dockerfile:39 DL3042 \u001b[1m\u001b[93mwarning\u001b[0m: Avoid use of cache directory with pip. Use `pip install --no-cache-dir <package>`\ndocker-image-cineca/Dockerfile:40 DL3059 \u001b[92minfo\u001b[0m: Multiple consecutive `RUN` instructions. Consider consolidation.\ndocker-image-cineca/Dockerfile:59 SC2239 \u001b[1m\u001b[91merror\u001b[0m: Ensure the shebang uses an absolute path to the interpreter.\ndocker-image-cineca/Dockerfile:59 DL4006 \u001b[1m\u001b[93mwarning\u001b[0m: Set the SHELL option -o pipefail before RUN with a pipe in it. If you are using /bin/sh in an alpine image or if your shell is symlinked to busybox then consider explicitly setting your SHELL to /bin/ash, or disable this check\ndocker-image-cineca/Dockerfile:62 SC2239 \u001b[1m\u001b[91merror\u001b[0m: Ensure the shebang uses an absolute path to the interpreter.\ndocker-image-cineca/Dockerfile:63 DL3059 \u001b[92minfo\u001b[0m: Multiple consecutive `RUN` instructions. Consider consolidation.\ndocker-image-cineca/Dockerfile:63 SC2239 \u001b[1m\u001b[91merror\u001b[0m: Ensure the shebang uses an absolute path to the interpreter.\ndocker-image-cineca/Dockerfile:70 DL3007 \u001b[1m\u001b[93mwarning\u001b[0m: Using latest is prone to errors if the image will ever update. Pin the version explicitly to a release tag\ndocker-image-cineca/Dockerfile:84 SC2239 \u001b[1m\u001b[91merror\u001b[0m: Ensure the shebang uses an absolute path to the interpreter.",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/dt-geo.assess.sqaaas/job/st750203%25252F1.0.0/1/execution/node/97/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/dt-geo.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {}
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": false
+                }
+            },
+            "coverage": {
+                "percentage": 0,
+                "total_subcriteria": 1,
+                "success_subcriteria": 0
+            }
+        },
+        "QC.Uni": {
+            "valid": false,
+            "subcriteria": {
+                "QC.Uni01": {
+                    "description": "Are the tests passing through an automated means?",
+                    "requirement_level": "MUST",
+                    "hint": "Please check & solve the failing test cases found by the {tool_name} tool",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "Test cases are not passing using None testing framework",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-jenkins_exit_status",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "pytest",
+                                "lang": "Python",
+                                "version": "7.1.3",
+                                "docker": {
+                                    "image": "eoscsynergy/sqaaas-pytest:7.1.3-alpha",
+                                    "reviewed": "2023-08-09"
+                                },
+                                "ci": {
+                                    "name": "QC.Uni gitlab.com/MondaicSupport/collaborations/dt-geo pytest",
+                                    "status": "FAILED",
+                                    "stdout_command": [
+                                        "pytest  --json-report  --json-report-indent 4"
+                                    ],
+                                    "stdout_text": "============================= test session starts ==============================\nplatform linux -- Python 3.9.17, pytest-7.1.3, pluggy-1.2.0\nrootdir: /sqaaas-build/gitlab.com/MondaicSupport/collaborations/dt-geo\nplugins: json-report-1.5.0, metadata-3.0.0\ncollected 0 items / 3 errors\n\n==================================== ERRORS ====================================\n___________ ERROR collecting continental_fwi_dtc/tests/test_utils.py ___________\nImportError while importing test module '/sqaaas-build/gitlab.com/MondaicSupport/collaborations/dt-geo/continental_fwi_dtc/tests/test_utils.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.9/importlib/__init__.py:127: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ncontinental_fwi_dtc/tests/test_utils.py:22: in <module>\n    import numpy as np\nE   ModuleNotFoundError: No module named 'numpy'\n__________ ERROR collecting shakemap_dtc/tests/test_faults_models.py ___________\nImportError while importing test module '/sqaaas-build/gitlab.com/MondaicSupport/collaborations/dt-geo/shakemap_dtc/tests/test_faults_models.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.9/importlib/__init__.py:127: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\nshakemap_dtc/tests/test_faults_models.py:18: in <module>\n    import matplotlib.pyplot as plt\nE   ModuleNotFoundError: No module named 'matplotlib'\n______________ ERROR collecting shakemap_dtc/tests/test_utils.py _______________\nImportError while importing test module '/sqaaas-build/gitlab.com/MondaicSupport/collaborations/dt-geo/shakemap_dtc/tests/test_utils.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.9/importlib/__init__.py:127: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\nshakemap_dtc/tests/test_utils.py:18: in <module>\n    import numpy as np\nE   ModuleNotFoundError: No module named 'numpy'\n--------------------------------- JSON report ----------------------------------\nreport saved to: .report.json\n=========================== short test summary info ============================\nERROR continental_fwi_dtc/tests/test_utils.py\nERROR shakemap_dtc/tests/test_faults_models.py\nERROR shakemap_dtc/tests/test_utils.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 3 errors during collection !!!!!!!!!!!!!!!!!!!!\n============================== 3 errors in 0.10s ===============================",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/dt-geo.assess.sqaaas/job/st750203%25252F1.0.0/1/execution/node/106/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/dt-geo.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {}
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": false
+                }
+            },
+            "coverage": {
+                "percentage": 0,
+                "total_subcriteria": 1,
+                "success_subcriteria": 0
+            }
+        },
+        "QC.Ver": {
+            "valid": false,
+            "subcriteria": {
+                "QC.Ver01.0": {
+                    "description": "Are tags being used for releasing software",
+                    "requirement_level": "MUST",
+                    "hint": "Git tags are a convenient way to release software. This subcriterion checks if any git tag is present in the code history. More info on it-scm.com/book/en/v2/Git-Basics-Tagging\" target=\"_blank\">git tagging</a>",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "The code repository does not use tags for releasing new software versions",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-is_semver",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "get_git_tags.py",
+                                "lang": "Semantic Versioning",
+                                "version": "latest",
+                                "docker": {
+                                    "dockerfile": "QC.Ver/Dockerfile",
+                                    "reviewed": "2022-05-10"
+                                },
+                                "ci": {
+                                    "name": "QC.Ver gitlab.com/MondaicSupport/collaborations/dt-geo get_git_tags.py",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "get_git_tags.py"
+                                    ],
+                                    "stdout_text": "[]",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/dt-geo.assess.sqaaas/job/st750203%25252F1.0.0/1/execution/node/115/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/dt-geo.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": []
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": false
+                },
+                "QC.Ver01": {
+                    "description": "Is the latest release compliant with Semantic Versioning (SemVer) specification?",
+                    "requirement_level": "SHOULD",
+                    "hint": "Latest tag must be compliant with <a href=\"https://semver.org\" target=\"_blank\">SemVer specification</a>",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "Latest release tag None found, but is not SemVer compliant",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-is_semver",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "get_git_tags.py",
+                                "lang": "Semantic Versioning",
+                                "version": "latest",
+                                "docker": {
+                                    "dockerfile": "QC.Ver/Dockerfile",
+                                    "reviewed": "2022-05-10"
+                                },
+                                "ci": {
+                                    "name": "QC.Ver gitlab.com/MondaicSupport/collaborations/dt-geo get_git_tags.py",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "get_git_tags.py"
+                                    ],
+                                    "stdout_text": "[]",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/dt-geo.assess.sqaaas/job/st750203%25252F1.0.0/1/execution/node/115/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/dt-geo.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": []
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": false
+                },
+                "QC.Ver02": {
+                    "description": "Are all release tags with Semantic Versioning (SemVer) specification?",
+                    "requirement_level": "SHOULD",
+                    "hint": "Existent release tags shall be <a href=\"https://semver.org\" target=\"_blank\">SemVer</a> compliant for this subcriterion to be successful",
+                    "evidence": [
+                        {
+                            "valid": true,
+                            "message": "All release tags are SemVer compliant",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-is_semver",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "get_git_tags.py",
+                                "lang": "Semantic Versioning",
+                                "version": "latest",
+                                "docker": {
+                                    "dockerfile": "QC.Ver/Dockerfile",
+                                    "reviewed": "2022-05-10"
+                                },
+                                "ci": {
+                                    "name": "QC.Ver gitlab.com/MondaicSupport/collaborations/dt-geo get_git_tags.py",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "get_git_tags.py"
+                                    ],
+                                    "stdout_text": "[]",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/dt-geo.assess.sqaaas/job/st750203%25252F1.0.0/1/execution/node/115/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/dt-geo.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": []
+                        }
+                    ],
+                    "valid": true
+                }
+            },
+            "coverage": {
+                "percentage": 33,
+                "total_subcriteria": 3,
+                "success_subcriteria": 1
+            }
+        },
+        "QC.Met": {
+            "valid": false,
+            "subcriteria": {
+                "QC.Met01": {
+                    "description": "Is the software citable?",
+                    "valid": false,
+                    "hint": "The two formats for software citation supported by SQAaaS are: 1) <a href=\"https://codemeta.github.io/\" target=\"_blank\">CodeMeta</a> and 2) <a href=\"https://citation-file-format.github.io/\" target=\"_blank\">Citation File Format (CFF)</a>. While CodeMeta provides you with a more comprehensive description, CFF is a more lightweight, good-enough approach to software (with built-in support by GitHub) citation. Both provide tools (<a href=\"https://codemeta.github.io/codemeta-generator/\" target=\"_blank\">CodeMeta generator</a>, <a href=\"https://citation-file-format.github.io/cff-initializer-javascript/#/\" target=\"_blank\">CFFINIT</a>)to easily generate a working citation file. Once having the file, be sure to add it to the root path of your code repo.",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "No matching files found for language <CodeMeta> in repository searching by extensions or filenames\nNo matching files found for language <Citation File Format> in repository searching by extensions or filenames"
+                        }
+                    ],
+                    "required_for_next_level_badge": false
+                }
+            },
+            "coverage": {
+                "percentage": 0,
+                "total_subcriteria": 1,
+                "success_subcriteria": 0
+            }
+        }
+    },
+    "badge": {
+        "software": {
+            "criteria": {
+                "bronze": {
+                    "to_fulfill": [
+                        "QC.Doc",
+                        "QC.Acc",
+                        "QC.Lic"
+                    ],
+                    "missing": [
+                        "QC.Doc",
+                        "QC.Lic"
+                    ],
+                    "fulfilled": [
+                        "QC.Acc"
+                    ]
+                },
+                "silver": {
+                    "to_fulfill": [
+                        "QC.Met",
+                        "QC.Ver",
+                        "QC.Doc",
+                        "QC.Acc",
+                        "QC.Lic"
+                    ],
+                    "missing": [
+                        "QC.Doc",
+                        "QC.Met",
+                        "QC.Lic",
+                        "QC.Ver"
+                    ],
+                    "fulfilled": [
+                        "QC.Acc"
+                    ]
+                },
+                "gold": {
+                    "to_fulfill": [
+                        "QC.Sty",
+                        "QC.Uni",
+                        "QC.Met",
+                        "QC.Sec",
+                        "QC.Ver",
+                        "QC.Doc",
+                        "QC.Acc",
+                        "QC.Lic"
+                    ],
+                    "missing": [
+                        "QC.Sty",
+                        "QC.Uni",
+                        "QC.Met",
+                        "QC.Ver",
+                        "QC.Doc",
+                        "QC.Lic"
+                    ],
+                    "fulfilled": [
+                        "QC.Sec",
+                        "QC.Acc"
+                    ]
+                }
+            },
+            "data": {}
+        }
+    }
+}
