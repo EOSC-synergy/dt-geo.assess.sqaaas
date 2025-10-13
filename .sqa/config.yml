@@ -5,7 +5,7 @@ config:
       branch: main
       repo: https://github.com/EOSC-synergy/sqaaas-tooling
     gitlab.com/MondaicSupport/collaborations/dt-geo:
-      branch: st750203/1.0.0
+      branch: main
       repo: https://gitlab.com/MondaicSupport/collaborations/dt-geo
 environment:
   JPL_DOCKERFORCEBUILD: enabled
@@ -15,54 +15,58 @@ sqa_criteria:
     repos:
       gitlab.com/MondaicSupport/collaborations/dt-geo git:
         commands:
-        - /usr/bin/env sh .sqa/script.skinny-orange-chamois.sh
-        container: qc.acc_shaggy-cornflower-butterfly
+        - /usr/bin/env sh .sqa/script.stinky-purple-molly.sh
+        container: qc.acc_pokey-pumpkin-yak
   QC.Doc:
     repos:
       gitlab.com/MondaicSupport/collaborations/dt-geo find_doc_files.py:
         commands:
-        - /usr/bin/env sh .sqa/script.wimpy-magenta-newt.sh
-        container: qc.doc_ugly-red-kudu
+        - /usr/bin/env sh .sqa/script.skimpy-sepia-lemur.sh
+        container: qc.doc_blurry-alizarin-chamois
       gitlab.com/MondaicSupport/collaborations/dt-geo git:
         commands:
-        - /usr/bin/env sh .sqa/script.wheezy-yellow-rattlesnake.sh
-        container: qc.doc_freaky-amaranth-giraffe
+        - /usr/bin/env sh .sqa/script.bluesy-linen-flamingo.sh
+        container: qc.doc_geeky-red-boar
       gitlab.com/MondaicSupport/collaborations/dt-geo markdownlint:
         commands:
-        - /usr/bin/env sh .sqa/script.homey-gamboge-toad.sh
-        container: qc.doc_snippy-russet-manatee
+        - /usr/bin/env sh .sqa/script.scanty-turquoise-beaver.sh
+        container: qc.doc_freaky-charcoal-bison
   QC.Lic:
     repos:
       gitlab.com/MondaicSupport/collaborations/dt-geo licensee:
         commands:
-        - /usr/bin/env sh .sqa/script.droopy-flax-tiger.sh
-        container: qc.lic_boozy-black-oyster
+        - /usr/bin/env sh .sqa/script.sunny-thistle-warthog.sh
+        container: qc.lic_breezy-ecru-mongoose
   QC.Sec:
     repos:
       gitlab.com/MondaicSupport/collaborations/dt-geo bandit:
         commands:
-        - /usr/bin/env sh .sqa/script.geeky-eggplant-ray.sh
-        container: qc.sec_boozy-pink-kingfisher
+        - /usr/bin/env sh .sqa/script.snappy-taupe-dhole.sh
+        container: qc.sec_stealthy-cobalt-starfish
   QC.Sty:
     repos:
       gitlab.com/MondaicSupport/collaborations/dt-geo flake8:
         commands:
-        - /usr/bin/env sh .sqa/script.skimpy-charcoal-weasel.sh
-        container: qc.sty_beady-mauve-grasshopper
+        - /usr/bin/env sh .sqa/script.scaly-amethyst-beetle.sh
+        container: qc.sty_bumpy-sangria-okapi
       gitlab.com/MondaicSupport/collaborations/dt-geo hadolint:
         commands:
-        - /usr/bin/env sh .sqa/script.hazy-flax-coral.sh
-        container: qc.sty_foggy-myrtle-anteater
+        - /usr/bin/env sh .sqa/script.stuffy-gold-whale.sh
+        container: qc.sty_beady-heliotrope-dachsbracke
+      gitlab.com/MondaicSupport/collaborations/dt-geo jsonlint:
+        commands:
+        - /usr/bin/env sh .sqa/script.wheezy-auburn-bombay.sh
+        container: qc.sty_nippy-emerald-ragdoll
   QC.Uni:
     repos:
       gitlab.com/MondaicSupport/collaborations/dt-geo pytest:
         commands:
-        - /usr/bin/env sh .sqa/script.sleepy-smalt-duck.sh
-        container: qc.uni_cozy-emerald-terrier
+        - /usr/bin/env sh .sqa/script.sunny-aqua-oyster.sh
+        container: qc.uni_greasy-khaki-dragon
   QC.Ver:
     repos:
       gitlab.com/MondaicSupport/collaborations/dt-geo get_git_tags.py:
         commands:
-        - /usr/bin/env sh .sqa/script.silly-plum-wolfhound.sh
-        container: qc.ver_ugly-gold-turkey
+        - /usr/bin/env sh .sqa/script.skimpy-green-mongoose.sh
+        container: qc.ver_ugly-periwinkle-meerkat
 timeout: 5400
